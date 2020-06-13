@@ -15,19 +15,6 @@ app = Flask(__name__,template_folder=".")
 def index():
     return render_template("index.html")
 
-# @app.route('/selection',methods=['GET','POST'])
-# def selection():
-#     # print(request.form)
-#     try:
-
-#         if request.form['input']=='FILE':
-#             return render_template("./template/single_page.html")
-#         else:
-#             return render_template("index.html")
-#     except Exception as e:
-#         print(e)
-#         return render_template("index.html")
-
 def show_img(frame):
     cv2.imshow('img',frame)
     cv2.waitKey(0)
@@ -77,7 +64,6 @@ def upload_file():
         # show_img(img)
         uri,_ = image_processing(img)
         return render_template("./template/output.html",image=uri)
-
 
 
 if __name__ == '__main__':
