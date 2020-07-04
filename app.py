@@ -52,20 +52,26 @@ def resize(img,size=720,interpolation=cv2.INTER_LINEAR):
 def upload_file():
    if request.method == 'POST':
         f = request.files['file'].read()
-        # print(request.form)
+        
+        osm=request.form['OSM VALUES']
+        psm=request.form['PSM VALUES']
+
         npimg = np.fromstring(f,np.uint8)
         img = cv2.imdecode(npimg,cv2.IMREAD_COLOR)
         img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+        
         # T = int(request.form['selection'])
+        
         text=set(request.form['selection'].lower().split(','))
-        print(text)
+        # print(text)
         img = resize(img)
-        create_boxes(img,text)
-        # show_img(img)
+        
+        create_boxes(img,text,[psm,osm])
+        
         uri,_ = image_processing(img)
         return render_template("./template/output.html",image=uri)
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1')
+    app.run(host='127.0.0.1',debug=True)
 

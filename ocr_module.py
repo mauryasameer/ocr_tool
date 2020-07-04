@@ -2,10 +2,10 @@ import pytesseract
 import cv2
 from pytesseract import Output
 
-def create_boxes(frame,text=''):
-
-    output = pytesseract.image_to_data(frame, output_type=Output.DICT,config='--psm 3 --oem 1')
-
+def create_boxes(frame,text='',config=['3','3']):
+    # print(config)
+    output = pytesseract.image_to_data(frame, output_type=Output.DICT,config=f'--psm {config[0]} --oem {config[1]}')
+    # print(output)
     boxes_len = len(output['text'])
 
     for i in range(boxes_len):

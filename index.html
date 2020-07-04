@@ -43,8 +43,11 @@
     <input type="file" name="file" accept="image/*" onchange="loadFile(event)" style="font-weight: 1000; font-size: 25px; margin-left: 210px;">
     <img id="output"/>
   <script>
+    
       var loadFile = function(event) {
+
         var output = document.getElementById('output');
+        
         output.src = URL.createObjectURL(event.target.files[0]);
         output.onload = function() {
           URL.revokeObjectURL(output.src) // free memory
@@ -58,12 +61,39 @@
 
 
 
-    <label for="NECKLACE" style="font-size: 25px; font-weight: 1000;">text :</label>
+    <label style="font-size: 25px; font-weight: 1000;">text :</label>
     
     <input type=text name='selection'/>
 <br></br>
+<label style="font-size: 25px; font-weight: 1000;">Select osm value</label>
+<select name="OSM VALUES" id='osm'>
+  <option value = "3">Default, based on what is avaliable</option>
+  <option value = "0">Orignal Tesseract Only</option>
+  <option value = "1">Orignal Neural nets + LSTM only</option>
+  <option value = "2">Tesseract + LSTM</option>
+</select>
 <br></br>
-    <input type = "submit" style="font-size: 25px; font-weight: 1000;" />
+<label style="font-size: 25px; font-weight: 1000;">Select psm value</label>
+<select name="PSM VALUES" id='osm'>
+  <option value = "3">Fully automatic page segmentation, but no OSD. (Default)</option>
+  <option value = "0">Orientation and script detection (OSD) only.</option>
+  <option value = "1">Automatic page segmentation with OSD.</option>
+  <option value = "2">Automatic page segmentation, but no OSD, or OCR. (not implemented)</option>
+  <option value = "4">Assume a single column of text of variable sizes.</option>
+  <option value = "5">Assume a single uniform block of vertically aligned text.</option>
+  <option value = "6">Assume a single uniform block of text.</option>
+  <option value = "7">Treat the image as a single text line.</option>
+  <option value = "8"> Treat the image as a single word.</option>
+  <option value = "9">Treat the image as a single word in a circle.</option>
+  <option value = "10">Treat the image as a single character.</option>
+  <option value = "11">Sparse text. Find as much text as possible in no particular order.</option>
+  <option value = "12">Sparse text with OSD.</option>
+  <option value = "13">Raw line. Treat the image as a single text line,
+    bypassing hacks that are Tesseract-specific.</option>
+</select>
+<br></br>
+<br>
+<input type = "submit" style="font-size: 25px; font-weight: 1000;" />
 </form>
 </div>
 </body>
