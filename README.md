@@ -34,13 +34,11 @@ To check your Ubuntu version you can use the lsb_release command:
   
 
 ```
-
 $ lsb_release -a
 
 ```
 
 ```
-
 No LSB modules are available.
 
 Distributor ID: Ubuntu
@@ -52,13 +50,11 @@ Release: 18.04
 Codename: bionic
 
 ```
-
 For Ubuntu 18.04 users, Tesseract 4 is part of the main apt-get repository, making it super easy to install Tesseract via the following command:
 
   
 
 `$ sudo apt install tesseract-ocr
-
 `
 
 If you’re using Ubuntu 14, 16, or 17 though, you’ll need a few extra commands due to dependency requirements.
@@ -75,7 +71,6 @@ Just add the alex-p/tesseract-ocr PPA repository to your system, update your pac
   
 
 ```
-
 $ sudo add-apt-repository ppa:alex-p/tesseract-ocr
 
 $ sudo apt-get update
@@ -99,9 +94,7 @@ Just run the following command, making sure to specify the --HEAD switch, and Te
   
 
 `
-
 $ brew install tesseract --HEAD
-
 `
 
 If you already have Tesseract installed on your Mac, you’ll first want to unlink the original install:
@@ -109,9 +102,7 @@ If you already have Tesseract installed on your Mac, you’ll first want to unli
   
 
 `
-
 $ brew unlink tesseract
-
 `
 
 And from there you can run the install command.
@@ -140,15 +131,9 @@ For running the code you have to install the libraries I have mentioned in the r
   
 
 ```
-
-  
-
 pip install -r requirements.txt
 
-  
-
 ```
-
   
   
 
@@ -157,10 +142,10 @@ pip install -r requirements.txt
 Run the following command
 
 ```
-
 python app.py
 
 ```
+
 
 the application will start running on localhost on port 5000
 
