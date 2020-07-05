@@ -53,7 +53,7 @@ def upload_file():
    if request.method == 'POST':
         f = request.files['file'].read()
         
-        osm=request.form['OSM VALUES']
+        oem=request.form['OEM VALUES']
         psm=request.form['PSM VALUES']
 
         npimg = np.fromstring(f,np.uint8)
@@ -66,7 +66,7 @@ def upload_file():
         # print(text)
         img = resize(img)
         
-        create_boxes(img,text,[psm,osm])
+        create_boxes(img,text,[psm,oem])
         
         uri,_ = image_processing(img)
         return render_template("./template/output.html",image=uri)
