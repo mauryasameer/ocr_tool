@@ -9,6 +9,7 @@ from werkzeug.utils import secure_filename
 import base64
 from ocr_module import create_boxes
 
+
 app = Flask(__name__,template_folder=".")
 
 @app.route("/")
@@ -67,7 +68,7 @@ def upload_file():
         img = resize(img)
         
         create_boxes(img,text,[psm,oem])
-        
+        # convering the image
         uri,_ = image_processing(img)
         return render_template("./template/output.html",image=uri)
 
